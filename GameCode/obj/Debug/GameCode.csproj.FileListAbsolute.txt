@@ -1,0 +1,6 @@
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\bin\Debug\GameCode.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\bin\Debug\GameCode.exe
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\bin\Debug\GameCode.pdb
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.exe
+c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.pdb
