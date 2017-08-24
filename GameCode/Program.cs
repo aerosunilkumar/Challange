@@ -10,10 +10,6 @@ namespace GameCode
     {
         static void Main(string[] args)
         {
-            //tedst
-            ///
-
-            ///
             Print2DArray(GameConsole.ConsolePattren);
             GameConsole g=new GameConsole(4);
         }
