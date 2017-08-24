@@ -8,10 +8,6 @@ namespace GameCode
 
     class AppClass
     {
-        /// <summary>
-        /// Main Entry Point
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Print2DArray(GameConsole.ConsolePattren);
