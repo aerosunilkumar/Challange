@@ -8,6 +8,7 @@ namespace GameCode
 
     class AppClass
     {
+        //Entry Point
         static void Main(string[] args)
         {
             Print2DArray(GameConsole.ConsolePattren);
