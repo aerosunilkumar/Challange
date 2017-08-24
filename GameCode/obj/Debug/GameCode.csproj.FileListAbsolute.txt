@@ -4,3 +4,9 @@ c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\bin\Debug
 c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.exe
 c:\users\admin\documents\visual studio 2015\Projects\GameCode\GameCode\obj\Debug\GameCode.pdb
+C:\Users\Admin\Source\Repos\Challange\GameCode\bin\Debug\GameCode.exe.config
+C:\Users\Admin\Source\Repos\Challange\GameCode\bin\Debug\GameCode.exe
+C:\Users\Admin\Source\Repos\Challange\GameCode\bin\Debug\GameCode.pdb
+C:\Users\Admin\Source\Repos\Challange\GameCode\obj\Debug\GameCode.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Challange\GameCode\obj\Debug\GameCode.exe
+C:\Users\Admin\Source\Repos\Challange\GameCode\obj\Debug\GameCode.pdb

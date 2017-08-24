@@ -1,90 +1,76 @@
-﻿//class PrintAllKLengthStrings
-//{
-//    static void WorkingSolution(int level)
-//    {
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-//        char?[,] a = new char?[4, 3] {
-//                                   {'A', 'B', 'C' } ,
-//                                   {'D', 'E', 'F' } ,
-//                                   {'G', 'H', 'I'},
-//                                   {null, 'J', null}
-//                                };
-//        /*
-//                    a[0,0]  a[0,1]  a[0, 2]
-//                    a[1, 0] a[1, 1] a[1, 2]
-//                    a[2, 0] a[2, 1] a[2, 2]
-//                    a[3, 0] a[3, 1] a[3, 2]
-//        */
+namespace GameCode
+{
+    // Java program to print all possible strings of length k
+    class PrintAllKLengthStrings
+    {
+        static int counter = 0;
+        public static List<string> availableMoves = new List<string>();
+        public static string[] InvalidCombinations = new string[] { "AE", "EA", "AC", "CA", "AF", "FA", "AI", "IA", "AH", "HA", "AG", "GA", "AJ", "JA", "BD", "DB", "BF", "FB", "BG", "GB", "BH", "HB", "BJ", "JB", "BI", "IB", "CD", "DC", "CE", "EC", "CG", "GC", "CH", "HC", "CI", "IC", "CJ", "JC", "DF", "FD", "DH", "HD", "DI", "ID", "DJ", "JD", "EI", "IE", "EG", "GE", "EJ", "JE", "FG", "GF", "FH", "HF", "FJ", "JF", "GJ", "JG", "GI", "IG","IJ","JI" };
+        // Driver method to test below methods
+        public static void Main(string[] args)
+        {
+            
+            Console.WriteLine("First Test");
+            char[] set1 = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+            int k = 1000;
+            printAllKLength(set1, k);
+            var finalList = availableMoves;
+            //foreach (var item in finalList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //if (finalList.Count > 0)
+            //{
+            //    Console.WriteLine(finalList.Count+ counter);
+            //}
+        }
 
-//        Print2DArray(a);
-//        int given = 1;
-//        List<string> combinations = new List<string>();
-//        for (int i = 0; i < 5; i++)
-//        {
-//            switch (i)
-//            {
-//                case 0:
-//                    StringBuilder value = new StringBuilder();
-//                    for (int j = 0; j < level; j++)
-//                    {
-//                        Console.Write(a[given, given]);
-//                        value.Append(a[given, given]);
-//                    }
-//                    combinations.Add(value.ToString());
-//                    break;
-//                case 1:
-//                    value = new StringBuilder();
-//                    for (int j = 0; j < level; j++)
-//                    {
-//                        Console.Write(a[given, given + j] + "");
-//                        value.Append(a[given, given + j] + "");
-//                    }
-//                    combinations.Add(value.ToString());
-//                    break;
-//                case 2:
-//                    //Console.WriteLine(a[given, given - 1]);
-//                    value = new StringBuilder();
-//                    for (int j = 0; j < level; j++)
-//                    {
-//                        Console.Write(a[given, given - j] + "");
-//                        value.Append(a[given, given - j] + "");
-//                    }
-//                    combinations.Add(value.ToString());
-//                    break;
-//                case 3:
-//                    //Console.WriteLine(a[given - 1, given]);
-//                    Console.Write(a[given, given]);
-//                    Console.Write(a[given - 1, given]);
-//                    combinations.Add(a[given, given] + "" + a[given - 1, given]);
-//                    break;
+        static bool checkAvailable(string input,int k)
+        {
+            return InvalidCombinations.Any(input.Contains);
+        }
+        // The method that prints all possible strings of length k.  It is
+        //  mainly a wrapper over recursive function printAllKLengthRec()
+        static void printAllKLength(char[] set, int k)
+        {
+            int n = set.Length;
+            printAllKLengthRec(set, "", n, k);
+        }
 
-//                case 4:
-//                    //Console.WriteLine(a[given + 1, given]);
-//                    Console.Write(a[given, given]);
-//                    Console.Write(a[given + 1, given]);
-//                    combinations.Add(a[given, given] + "" + a[given + 1, given]);
-//                    break;
+        // The main recursive method to print all possible strings of length k
+        static void printAllKLengthRec(char[] set, String prefix, int n, int k)
+        {
 
-//            };
-//            Console.WriteLine();
-//        }
-//    }
+            // Base case: k is 0, print prefix
+            if (k == 0)
+            {
+                if (!checkAvailable(prefix, 2))
+                {
+                    availableMoves.Add(prefix);
+                    if (availableMoves.Count > 50) {
+                        counter = counter+availableMoves.Count;
+                        availableMoves = new List<string>();
+                    }
+                }
+                //Console.WriteLine(prefix);
+                return;
+            }
 
-//    public static void Print2DArray<T>(T[,] matrix)
-//    {
-//        for (int i = 0; i < matrix.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < matrix.GetLength(1); j++)
-//            {
-//                Console.Write(matrix[i, j] + "\t");
-//            }
-//            Console.WriteLine();
-//        }
-//    }
-//    static int count = 0;
-//    // Driver method to test below methods
-//    static void Main(string[] args)
-//    {
-//        WorkingSolution(1);
-//    }
-//}
+            // One by one add all characters from set and recursively 
+            // call for k equals to k-1
+            for (int i = 0; i < n; ++i)
+            {
+
+                // Next character of input added
+                String newPrefix = prefix + set[i];
+
+                // k is decreased, because we have added a new character
+                printAllKLengthRec(set, newPrefix, n, k - 1);
+            }
+        }
+    }
+}
